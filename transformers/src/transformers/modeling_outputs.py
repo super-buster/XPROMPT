@@ -609,6 +609,7 @@ class NextSentencePredictorOutput(ModelOutput):
     logits: torch.FloatTensor = None
     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
     attentions: Optional[Tuple[torch.FloatTensor]] = None
+    domain_loss: Optional[torch.FloatTensor] = None
 
 
 @dataclass
@@ -638,7 +639,7 @@ class SequenceClassifierOutput(ModelOutput):
     logits: torch.FloatTensor = None
     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
     attentions: Optional[Tuple[torch.FloatTensor]] = None
-
+    
 
 @dataclass
 class Seq2SeqSequenceClassifierOutput(ModelOutput):
