@@ -1,0 +1,7 @@
+__pycache__
+zhanxiancun.sh
+run_jobs.py
+.vscode
+datasets/*
+logs
+*.txt
