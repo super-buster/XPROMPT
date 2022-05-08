@@ -17,6 +17,7 @@
 import gc
 import json
 import os
+from pyclbr import Function
 import re
 import shutil
 import tempfile
@@ -75,6 +76,16 @@ logger = logging.get_logger(__name__)
 
 _init_weights = True
 
+class ReverseLayerF(Function):
+    @staticmethod
+    def forward(ctx,x,alpha=0.8):
+        ctx.alpha=alpha
+        return x.view_as(x)
+
+    @staticmethod
+    def backward(ctx,grad_output):
+        output=grad_output.neg()*ctx.alpha
+        return output,None
 
 @contextmanager
 def no_init_weights(_enable=True):
