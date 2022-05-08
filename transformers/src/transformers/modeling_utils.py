@@ -17,7 +17,7 @@
 import gc
 import json
 import os
-from pyclbr import Function
+from torch.autograd import Function
 import re
 import shutil
 import tempfile
